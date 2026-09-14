@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Exam Flash Cards</title>
+  <meta name="description"
+    content="Minimalist, distraction-free 3D flashcards for the Google Cloud Professional Machine Learning Engineer certification exam.">
+  <link rel="stylesheet" href="style.css?v=4">
+</head>
+
+<body>
+
+  <!-- Single Slim Top Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-title">Flash Cards</span>
+      </div>
+
+      <div class="header-center">
+        <select id="categoryFilter" class="category-dropdown" aria-label="Filter by category">
+          <option value="all">All Topics</option>
+        </select>
+      </div>
+
+      <div class="header-actions">
+        <button id="btnOpenSearch" class="icon-btn" title="Search (Press /)" aria-label="Search questions">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button id="btnShuffle" class="icon-btn" title="Shuffle Cards" aria-label="Shuffle cards">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 3 21 3 21 8"></polyline>
+            <line x1="4" y1="20" x2="21" y2="3"></line>
+            <polyline points="21 16 21 21 16 21"></polyline>
+            <line x1="15" y1="15" x2="21" y2="21"></line>
+            <line x1="4" y1="4" x2="9" y2="9"></line>
+          </svg>
+        </button>
+        <button id="btnOpenGrid" class="icon-btn" title="Question Navigator (Press J)"
+          aria-label="Open question navigator">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+        <button id="btnThemeToggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle dark/light theme">
+          <svg id="themeIconSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Clean 2px Progress Line -->
+    <div class="header-progress-line">
+      <div id="progressFill" class="header-progress-fill"></div>
+    </div>
+  </header>
+
+  <!-- Main Flashcard Stage -->
+  <main class="main-stage">
+    <div class="card-scene">
+      <div id="flashcard" class="flashcard-inner" role="button" tabindex="0"
+        aria-label="Flashcard. Click or press Space to flip.">
+
+        <!-- Front Face (Question) -->
+        <div class="card-face card-front">
+          <div class="card-meta-row">
+            <span id="frontCategory" class="card-tag">Monitoring & Drift</span>
+            <span id="frontIndex" class="card-index">1 / 50</span>
+          </div>
+
+          <div class="card-main-content">
+            <p id="frontScenario" class="scenario-p"></p>
+            <p id="frontPrompt" class="prompt-p">What should you do?</p>
+          </div>
+
+          <div class="card-bottom-hint">
+            <span>Click card or press <kbd>Space</kbd> to flip</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Back Face (Answer & Insights) -->
+        <div class="card-face card-back">
+          <div class="card-meta-row">
+            <span id="backCategory" class="card-tag">Monitoring & Drift</span>
+            <span class="badge-correct">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Correct Action
+            </span>
+          </div>
+
+          <div class="card-main-content">
+            <div class="solution-callout">
+              <div class="solution-label">Recommended GCP Architecture</div>
+              <div id="backSolution" class="solution-text"></div>
+            </div>
+
+            <div class="notes-section">
+              <div class="notes-group" id="whyCorrectContainer">
+                <div class="notes-heading">Key Architectural Rationale</div>
+                <ul id="whyCorrectList" class="notes-list"></ul>
+              </div>
+
+              <div class="notes-group" id="distractorsContainer">
+                <div class="notes-heading distractors-heading">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  Why Other Options Fall Short
+                </div>
+                <ul id="distractorsList" class="notes-list distractor-list"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-bottom-hint">
+            <span>Click card or press <kbd>Space</kbd> to flip back</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation Bar Below Card -->
+    <nav class="controls-bar" aria-label="Flashcard controls">
+      <button id="btnPrev" class="nav-btn" title="Previous (Left Arrow)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Previous
+      </button>
+
+      <div class="center-controls">
+        <button id="btnCounterJump" class="btn-card-counter" title="Jump to question">
+          <span id="counterLabel">Card 1 / 50</span> ▾
+        </button>
+        <button id="btnMasterToggle" class="btn-master" title="Toggle Mastered (M)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span id="masterStatusText">Master</span>
+        </button>
+      </div>
+
+      <button id="btnNext" class="nav-btn" title="Next (Right Arrow)">
+        Next
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Subtle Shortcuts Legend -->
+    <footer class="shortcuts-footer">
+      <span><kbd>←</kbd> <kbd>→</kbd> Navigate</span> &bull;
+      <span><kbd>Space</kbd> Flip</span> &bull;
+      <span><kbd>M</kbd> Master</span>
+    </footer>
+  </main>
+
+  <!-- Modal 1: Question Navigator Grid -->
+  <div id="gridModal" class="modal-overlay" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3>Question Navigator (50 Questions)</h3>
+        <button id="btnCloseGrid" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="gridCellsContainer" class="grid-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Quick Search -->
+  <div id="searchModal" class="modal-overlay" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-sheet">
+      <div class="modal-head">
+        <h3>Search Flashcards</h3>
+        <button id="btnCloseSearch" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="modalSearchInput" class="search-modal-input"
+          placeholder="Type keyword (e.g. drift, AutoSxS, Slurm, DLP, ARIMA)..." autofocus>
+        <div id="searchResultsList" class="search-results-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="cards_data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
