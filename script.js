@@ -42,8 +42,7 @@
   const backSolution = document.getElementById("backSolution");
   const whyCorrectContainer = document.getElementById("whyCorrectContainer");
   const whyCorrectList = document.getElementById("whyCorrectList");
-  const distractorsContainer = document.getElementById("distractorsContainer");
-  const distractorsList = document.getElementById("distractorsList");
+  const gridModalTitle = document.getElementById("gridModalTitle");
 
   const btnPrev = document.getElementById("btnPrev");
   const btnNext = document.getElementById("btnNext");
@@ -187,30 +186,18 @@
     backCategory.textContent = card.category;
     backSolution.textContent = card.correct_answer;
 
-    // Why Correct Bullet Points
+    // Architectural Explanation Bullet Points
     whyCorrectList.innerHTML = "";
-    if (card.why_correct && card.why_correct.length > 0) {
+    const explanationPoints = card.explanation || card.why_correct || [];
+    if (explanationPoints.length > 0) {
       whyCorrectContainer.style.display = "block";
-      card.why_correct.forEach(pt => {
+      explanationPoints.forEach(pt => {
         const li = document.createElement("li");
         li.innerHTML = `<strong>${escapeHTML(pt.title)}:</strong> ${escapeHTML(pt.content)}`;
         whyCorrectList.appendChild(li);
       });
     } else {
       whyCorrectContainer.style.display = "none";
-    }
-
-    // Distractor Bullet Points
-    distractorsList.innerHTML = "";
-    if (card.why_distractors && card.why_distractors.length > 0) {
-      distractorsContainer.style.display = "block";
-      card.why_distractors.forEach(pt => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${escapeHTML(pt.title)}:</strong> ${escapeHTML(pt.content)}`;
-        distractorsList.appendChild(li);
-      });
-    } else {
-      distractorsContainer.style.display = "none";
     }
 
     // Bottom Navigation Bar
@@ -302,6 +289,9 @@
   // --------------------------------------------------------------------------
   function openGridModal() {
     gridCellsContainer.innerHTML = "";
+    if (gridModalTitle) {
+      gridModalTitle.textContent = `Question Navigator (${allCards.length} Questions)`;
+    }
     const card = getCurrentCard();
     const currentId = card ? card.id : -1;
 
@@ -353,12 +343,13 @@
     }
 
     const matches = allCards.filter(c => {
+      const exp = c.explanation || c.why_correct || [];
       return (
         c.scenario.toLowerCase().includes(q) ||
         (c.prompt || "").toLowerCase().includes(q) ||
         c.correct_answer.toLowerCase().includes(q) ||
         c.category.toLowerCase().includes(q) ||
-        (c.why_correct || []).some(pt => pt.title.toLowerCase().includes(q) || pt.content.toLowerCase().includes(q))
+        exp.some(pt => pt.title.toLowerCase().includes(q) || pt.content.toLowerCase().includes(q))
       );
     });
 

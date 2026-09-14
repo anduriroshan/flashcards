@@ -1,6 +1,6 @@
 # Google Cloud Certified Professional ML Engineer Flashcards
 
-A tactile, distraction-free study tool containing all **50 original reframed practice questions** and deep architectural breakdowns for the **Google Cloud Professional Machine Learning Engineer** certification exam.
+A tactile, distraction-free study tool containing all **65 original practice questions** and deep architectural breakdowns for the **Google Cloud Professional Machine Learning Engineer** certification exam.
 
 Deployed as a zero-dependency static web application ready for **GitHub Pages** on mobile and desktop.
 
@@ -8,20 +8,20 @@ Deployed as a zero-dependency static web application ready for **GitHub Pages** 
 
 ## Features
 
-- **All 50 Original Practice Questions**: 100% original, fabricated scenarios covering modern GCP AI/ML production patterns while adhering to exam confidentiality and copyright policies.
+- **All 65 Original Practice Questions**: 100% original, fabricated scenarios covering modern GCP AI/ML production patterns (Gemini 1.5, Vector Search, Feature Store, vLLM, TPU v5e, Pipelines, and MLOps) while adhering to exam confidentiality policies.
+- **Clean Architectural Explanations**: Direct, comprehensive explanations focusing on the recommended architecture and key engineering concepts (no multiple-choice distractors cluttering the study flow).
 - **Solid Color Tactile Design**: Distinctive solid category colors (Amber, Royal Violet, Indigo, Teal, Rose, Sapphire Blue) paired with high-contrast typography and a clean, non-AI-slop layout.
 - **Mobile Touch Gestures**: Full mobile touch support with swipe-left (next), swipe-right (previous), and tap-to-flip, with isolated touch boundaries.
 - **Deep Explanations**: Every question includes:
   - The exact recommended GCP action.
-  - **Key Rationale & Architecture**: Why the solution satisfies constraints (cost, latency, MLOps best practices).
-  - **Distractor Analysis**: Detailed breakdown of why each incorrect option fails or is suboptimal.
+  - **Architectural Explanation & Key Concepts**: Why the solution satisfies constraints (cost, latency, MLOps best practices).
 - **Fast Keyboard Navigation**:
   - `←` / `→` or `K` / `J`: Previous / Next card
   - `Space` or `Enter`: Reveal / Hide answer
   - `M`: Mark card as Mastered / Needs Review
-  - `G`: Open question navigator grid
+  - `G`: Open question navigator grid (65 cards)
 - **Study Progress Tracking**: Tracks mastered cards locally in your browser (`localStorage`).
-- **Topic & Keyword Search**: Filter by domain (e.g., *Monitoring & Drift*, *GenAI & LLMs*, *MLOps & CI/CD*, *Data & Feature Engineering*, *Serving & Infra*) or search for specific technologies (*AutoSxS*, *Slurm*, *DLP*, *ARIMA_PLUS*, *TensorBoard*).
+- **Topic & Keyword Search**: Filter by domain or search for specific technologies (*AutoSxS*, *Slurm*, *DLP*, *ARIMA_PLUS*, *vLLM*, *TPU v5e*, *GCSFUSE*).
 - **Dark Mode**: Neutral, eye-friendly dark theme.
 - **Zero Dependencies**: Pure HTML, Vanilla CSS, and JavaScript. Runs offline and requires no build tools or servers.
 
@@ -48,7 +48,7 @@ In your terminal (inside this folder):
 ```bash
 git init
 git add .
-git commit -m "Add 50 GCP MLE flashcards"
+git commit -m "Add 65 GCP MLE flashcards"
 ```
 
 ### Step 2: Push to GitHub
