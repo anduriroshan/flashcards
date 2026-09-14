@@ -1,15 +1,16 @@
 # Google Cloud Certified Professional ML Engineer Flashcards
 
-A minimalist, distraction-free study tool containing all **50 real-world practice questions** and deep architectural breakdowns for the **Google Cloud Professional Machine Learning Engineer** certification exam.
+A tactile, distraction-free study tool containing all **50 original reframed practice questions** and deep architectural breakdowns for the **Google Cloud Professional Machine Learning Engineer** certification exam.
 
-Deployed as a zero-dependency static web application ready for **GitHub Pages**.
+Deployed as a zero-dependency static web application ready for **GitHub Pages** on mobile and desktop.
 
 ---
 
 ## Features
 
-- **All 50 Practice Questions**: Thorough scenarios covering modern GCP AI/ML production patterns.
-- **Clean & Minimal UI**: Strict typographic hierarchy, neutral color palette, zero AI-slop (no gradients, glassmorphism, or irregular alignments).
+- **All 50 Original Practice Questions**: 100% original, fabricated scenarios covering modern GCP AI/ML production patterns while adhering to exam confidentiality and copyright policies.
+- **Solid Color Tactile Design**: Distinctive solid category colors (Amber, Royal Violet, Indigo, Teal, Rose, Sapphire Blue) paired with high-contrast typography and a clean, non-AI-slop layout.
+- **Mobile Touch Gestures**: Full mobile touch support with swipe-left (next), swipe-right (previous), and tap-to-flip, with isolated touch boundaries.
 - **Deep Explanations**: Every question includes:
   - The exact recommended GCP action.
   - **Key Rationale & Architecture**: Why the solution satisfies constraints (cost, latency, MLOps best practices).
